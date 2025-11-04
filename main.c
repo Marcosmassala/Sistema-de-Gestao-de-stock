@@ -13,11 +13,12 @@ typedef struct {
 
 Produto stock[MAX_PRODUTOS];
 int totalProdutos = 0;
+int i;
 
-// Funções
+// FunÃ§Ãµes
 void adicionarProduto() {
     if (totalProdutos >= MAX_PRODUTOS) {
-        printf("Limite máximo de produtos atingido!\n");
+        printf("Limite maximo de produtos atingido!\n");
         return;
     }
 
@@ -30,7 +31,7 @@ void adicionarProduto() {
     printf("Quantidade: ");
     scanf("%d", &novo.quantidade);
 
-    printf("Preço (por unidade): ");
+    printf("Preco (por unidade): ");
     scanf("%f", &novo.preco);
 
     stock[totalProdutos] = novo;
@@ -46,9 +47,9 @@ void listarProdutos() {
     }
 
     printf("\n--- LISTA DE PRODUTOS ---\n");
-    for (int i = 0; i < totalProdutos; i++) {
+    for (i = 0; i < totalProdutos; i++) {
         Produto p = stock[i];
-        printf("ID: %d | Nome: %s | Qtd: %d | Preço: %.2f\n",
+        printf("ID: %d | Nome: %s | Qtd: %d | PreÃ§o: %.2f\n",
                p.id, p.nome, p.quantidade, p.preco);
     }
     printf("\n");
@@ -60,7 +61,7 @@ void atualizarQuantidade() {
     scanf("%d", &id);
 
     if (id < 1 || id > totalProdutos) {
-        printf("Produto não encontrado!\n\n");
+        printf("Produto nÃ£o encontrado!\n\n");
         return;
     }
 
@@ -78,11 +79,11 @@ void removerProduto() {
     scanf("%d", &id);
 
     if (id < 1 || id > totalProdutos) {
-        printf("Produto não encontrado!\n\n");
+        printf("Produto nÃ£o encontrado!\n\n");
         return;
     }
 
-    for (int i = id - 1; i < totalProdutos - 1; i++) {
+    for (i = id - 1; i < totalProdutos - 1; i++) {
         stock[i] = stock[i + 1];
         stock[i].id = i + 1;
     }
@@ -92,13 +93,13 @@ void removerProduto() {
 }
 
 void menu() {
-    printf("=== SISTEMA DE GESTÃO DE STOCK ===\n");
+    printf("=== SISTEMA DE GESTAO DE STOCK ===\n");
     printf("1. Adicionar produto\n");
     printf("2. Listar produtos\n");
     printf("3. Atualizar quantidade\n");
     printf("4. Remover produto\n");
     printf("5. Sair\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
 }
 
 int main() {
@@ -125,7 +126,7 @@ int main() {
                 printf("Encerrando o programa...\n");
                 break;
             default:
-                printf("Opção inválida. Tente novamente.\n");
+                printf("Opcao invalida. Tente novamente.\n");
         }
     } while (opcao != 5);
 
